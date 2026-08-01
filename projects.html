@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects (7) — Nabil Al Ma'ruf AI Engineer</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #0f1218;
+      overflow-y: auto;
+    }
+    
+    .projects-page-wrapper {
+      max-width: 1100px;
+      margin: var(--nav-height) auto 40px;
+      padding: 40px 24px;
+    }
+
+    .projects-hero-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .projects-tag {
+      color: var(--accent-cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .projects-main-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(38px, 5vw, 64px);
+      letter-spacing: 2px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .projects-main-sub {
+      color: #cbd5e1;
+      font-size: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Filter Tabs */
+    .filter-tabs-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(33, 40, 50, 0.88);
+      border: 1px solid var(--panel-border);
+      color: #cbd5e1;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-teal);
+      color: #ffffff;
+      border-color: var(--accent-teal);
+    }
+
+    /* Projects Grid */
+    .standalone-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    .standalone-card {
+      background: rgba(33, 40, 50, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .standalone-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-cyan);
+    }
+
+    .standalone-thumb {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      border: 1px solid var(--panel-border);
+    }
+
+    .standalone-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .standalone-card:hover .standalone-thumb img {
+      transform: scale(1.05);
+    }
+
+    .standalone-card-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .standalone-card-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .standalone-card-cat {
+      font-size: 11px;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .standalone-know-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-cyan);
+      font-weight: 800;
+      font-size: 12px;
+      text-decoration: none;
+      margin-top: 10px;
+      letter-spacing: 1px;
+      transition: color 0.2s ease;
+    }
+
+    .standalone-know-btn:hover {
+      color: #ffffff;
+    }
+
+    /* CTA Card */
+    .cta-banner-card {
+      background: rgba(33, 40, 50, 0.92);
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      margin-bottom: 40px;
+    }
+
+    .cta-banner-text h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 40px;
+      color: #ffffff;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .cta-banner-text p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .standalone-projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-banner-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CLEAN TOP NAVIGATION HEADER -->
+  <header class="top-nav" style="right: 0;">
+    <div class="nav-brand">
+      <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+        <div class="brand-icon">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <span class="brand-name">MA'RUF</span>
+      </a>
+    </div>
+
+    <div class="nav-center-badge">
+      <span>PROJECTS</span>
+    </div>
+
+    <div class="nav-right">
+      <button id="lang-toggle-btn" class="lang-toggle-btn" title="Switch Language (ID / EN)">
+        <i class="fa-solid fa-globe"></i>
+        <span id="lang-label">🇮🇩 ID</span>
+      </button>
+
+      <a href="index.html" class="btn-cyan" style="padding: 6px 14px; font-size: 11px; text-decoration: none;">
+        <i class="fa-solid fa-arrow-left"></i> <span data-id="KEMBALI KE BERANDA" data-en="BACK TO HOME">KEMBALI KE BERANDA</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN PROJECTS PAGE CONTENT -->
+  <main class="projects-page-wrapper">
+    
+    <!-- Hero Header -->
+    <div class="projects-hero-header">
+      <span class="projects-tag" data-id="PORTOFOLIO PROYEK SAYA" data-en="MY WORK & PORTFOLIO">PORTOFOLIO PROYEK SAYA</span>
+      <h1 class="projects-main-title" data-id="PROYEK SELESAI (7)" data-en="COMPLETED PROJECTS (7)">PROYEK SELESAI (7)</h1>
+      <p class="projects-main-sub" data-id="Jelajahi koleksi 7 proyek asli buatan Nabil Al Ma'ruf mencakup Aplikasi Mobile, E-Commerce, PWA, Sistem POS, dan Integrasi AI." data-en="Explore my collection of 7 authentic projects spanning Mobile Apps, Full-Stack E-Commerce, PWA, POS Systems, and AI Integrations by Nabil Al Ma'ruf.">
+        Jelajahi koleksi 7 proyek asli buatan Nabil Al Ma'ruf mencakup Aplikasi Mobile, E-Commerce, PWA, Sistem POS, dan Integrasi AI.
+      </p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs-wrapper">
+      <button class="filter-btn active" data-filter="all" data-id="SEMUA PROYEK (7)" data-en="ALL PROJECTS (7)">SEMUA PROYEK (7)</button>
+      <button class="filter-btn" data-filter="android" data-id="MOBILE & DATABASE" data-en="MOBILE & DATABASE">MOBILE & DATABASE</button>
+      <button class="filter-btn" data-filter="web" data-id="WEB & POS" data-en="WEB & POS">WEB & POS</button>
+      <button class="filter-btn" data-filter="ai" data-id="INTEGRASI AI" data-en="AI INTEGRATIONS">INTEGRASI AI</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="standalone-projects-grid">
+      
+      <!-- Card 1 -->
+      <div class="standalone-card" data-category="android" data-project="laundry">
+        <div class="standalone-thumb">
+          <img src="images/project_vintage.png" alt="LaundryEmme App">
+        </div>
+        <div class="standalone-card-info">
+          <div>
+            <h3 class="standalone-card-title">LaundryEmme</h3>
+            <span class="standalone-card-cat">Kotlin, Jetpack Compose, Supabase, Kiro AI</span>
+          </div>
+        </div>
+        <span class="standalone-know-btn" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="standalone-card" data-category="android" data-project="sqlserver">
+        <div class="standalone-thumb">
+          <img src="images/project_marco.png" alt="Android SQL Server 2008">
+        </div>
+        <div class="standalone-card-info">
+          <div>
+            <h3 class="standalone-card-title">Android SQL Server 2008</h3>
+            <span class="standalone-card-cat">Enterprise Database CRUD Integration</span>
+          </div>
+        </div>
+        <span class="standalone-know-btn" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="standalone-card" data-category="web" data-project="kasq">
+        <div class="standalone-thumb">
+          <img src="images/project_mozaik.png" alt="PWA KASQ">
+        </div>
+        <div class="standalone-card-info">
+          <div>
+            <h3 class="standalone-card-title">PWA KASQ (WhatsApp Alert)</h3>
+            <span class="standalone-card-cat">PWA, Supabase, WhatsApp API Integration</span>
+          </div>
+        </div>
+        <span class="standalone-know-btn" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="standalone-card" data-category="ai" data-project="emmeshop">
+        <div class="standalone-thumb">
+          <img src="images/project_tokoku.png" alt="EmmeShop">
+        </div>
+        <div class="standalone-card-info">
+          <div>
+            <h3 class="standalone-card-title">EmmeShop + Gemini CS Bot</h3>
+            <span class="standalone-card-cat">E-Commerce & Google Gemini AI API</span>
+          </div>
+        </div>
+        <span class="standalone-know-btn" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="standalone-card" data-category="web" data-project="barcode">
+        <div class="standalone-thumb">
+          <img src="images/project_foodasa.png" alt="Camera Barcode Scanner POS">
+        </div>
+        <div class="standalone-card-info">
+          <div>
+            <h3 class="standalone-card-title">Camera Barcode Scanner POS</h3>
+            <span class="standalone-card-cat">Web POS with Camera Barcode Lookup</span>
+          </div>
+        </div>
+        <span class="standalone-know-btn" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="standalone-card" data-category="web" data-project="qrmenu">
+        <div class="standalone-thumb">
+          <img src="images/project_valkyrie.png" alt="QR Menu POS Midtrans">
+        </div>
+        <div class="standalone-card-info">
+          <div>
+            <h3 class="standalone-card-title">QR Menu & POS (Midtrans)</h3>
+            <span class="standalone-card-cat">POS & Midtrans Gateway Payment</span>
+          </div>
+        </div>
+        <span class="standalone-know-btn" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="standalone-card" data-category="web" data-project="pudding">
+        <div class="standalone-thumb">
+          <img src="images/developer_coding.png" alt="UMKM Pudding Sedot">
+        </div>
+        <div class="standalone-card-info">
+          <div>
+            <h3 class="standalone-card-title">UMKM Pudding Sedot Page</h3>
+            <span class="standalone-card-cat">Landing Page & Direct WhatsApp Checkout</span>
+          </div>
+        </div>
+        <span class="standalone-know-btn" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner-card">
+      <div class="cta-banner-text">
+        <h2 data-id="MARI MEMBANGUN SESUATU YANG HEBAT" data-en="LET'S WORK TOGETHER ON YOUR NEXT PROJECT">MARI MEMBANGUN SESUATU YANG HEBAT</h2>
+        <p data-id="Tersedia untuk proyek AI, aplikasi mobile, sistem POS web, dan kolaborasi teknis dengan Nabil Al Ma'ruf." data-en="Available for AI engineering projects, mobile apps, web POS systems, and technical collaborations with Nabil Al Ma'ruf.">Tersedia untuk proyek AI, aplikasi mobile, sistem POS web, dan kolaborasi teknis dengan Nabil Al Ma'ruf.</p>
+      </div>
+      <a href="https://wa.me/6285150911240" target="_blank" class="btn-primary" style="white-space: nowrap;">
+        <i class="fa-brands fa-whatsapp"></i> <span data-id="Chat di WhatsApp" data-en="WhatsApp Me">Chat di WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- IDENTICAL SITE FOOTER -->
+    <footer class="site-footer" style="position: relative; max-width: 1100px; margin: 40px auto 0;">
+      <div class="footer-left">
+        <span class="footer-brand">NABIL AL MA'RUF &bull; FOUNDER @ EMMEDIGITAL &bull; AI ENGINEER</span>
+        <span class="footer-copy" data-id="© 2026 Hak Cipta Dilindungi. Dibuat dengan Animasi Scroll Kanvas HTML5." data-en="&copy; 2026 All Rights Reserved. Built with HTML5 Canvas Scroll Animation.">&copy; 2026 Hak Cipta Dilindungi. Dibuat dengan Animasi Scroll Kanvas HTML5.</span>
+      </div>
+
+      <div class="footer-center">
+        <a href="http://github.com/Nabil-Al-Maruf/" target="_blank" class="footer-soc" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://instagram.com/_nblz_" target="_blank" class="footer-soc" title="Instagram (@_nblz_)"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/6285150911240" target="_blank" class="footer-soc" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://youtube.com/@maruf_emme" target="_blank" class="footer-soc" title="YouTube (maruf_emme)"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
+      <div class="footer-right">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="footer-top-btn">
+          <i class="fa-solid fa-arrow-up"></i> <span data-id="Kembali Ke Atas" data-en="Back To Top">Kembali Ke Atas</span>
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- PROJECT DETAIL MODAL -->
+  <div id="project-modal" class="modal-overlay">
+    <div class="project-modal-content">
+      <button class="modal-close" id="close-project-modal-btn">&times;</button>
+      
+      <div class="project-modal-header">
+        <span class="blue-tag" id="pm-category">ANDROID NATIVE</span>
+        <h2 id="pm-title">Project Title</h2>
+      </div>
+
+      <!-- Image Gallery Carousel -->
+      <div class="project-gallery">
+        <img id="pm-main-img" src="images/project_vintage.png" alt="Project Screenshot">
+        <div class="gallery-thumbs" id="pm-thumbs">
+          <!-- Thumbnails injected via JS -->
+        </div>
+      </div>
+
+      <!-- Summary & Details -->
+      <div class="project-summary-body">
+        <h3><i class="fa-solid fa-file-code"></i> <span data-id="Gambaran Umum Proyek" data-en="Project Overview">Gambaran Umum Proyek</span></h3>
+        <p id="pm-description">Detailed summary description...</p>
+
+        <h3><i class="fa-solid fa-layer-group"></i> <span data-id="Teknologi & Alat Yang Digunakan" data-en="Technologies & Tools Used">Teknologi & Alat Yang Digunakan</span></h3>
+        <div class="tech-tags-wrapper" id="pm-tags">
+          <!-- Tech tags injected via JS -->
+        </div>
+      </div>
+
+      <div class="project-modal-footer">
+        <a id="pm-link" href="http://github.com/Nabil-Al-Maruf/" target="_blank" class="btn-cyan">
+          <i class="fa-brands fa-github"></i> <span data-id="Lihat Repositori / Demo" data-en="View Repository / Demo">Lihat Repositori / Demo</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN IMAGE LIGHTBOX -->
+  <div id="image-lightbox" class="modal-overlay">
+    <button class="modal-close" id="close-lightbox-btn" style="top: 20px; right: 25px; font-size: 32px;">&times;</button>
+    <img id="lightbox-full-img" src="" alt="Fullscreen Screenshot" style="max-width: 92vw; max-height: 92vh; object-fit: contain; border-radius: 12px; box-shadow: 0 0 50px rgba(0, 255, 245, 0.4); border: 1px solid var(--panel-border);">
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Filter Tabs Handler
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.standalone-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

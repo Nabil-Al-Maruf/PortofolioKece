@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nabil Al Ma'ruf — AI Engineer Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fixed Canvas Background Animation -->
+  <div class="canvas-container">
+    <canvas id="scroll-canvas"></canvas>
+  </div>
+
+  <!-- Eye Preloader Overlay -->
+  <div id="loader" class="loader-overlay">
+    <span class="loader"></span>
+    <div id="loader-text" class="loader-text">Loading 0%</div>
+  </div>
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <div class="brand-icon">
+        <i class="fa-solid fa-brain"></i>
+      </div>
+      <span class="brand-name">MA'RUF</span>
+    </div>
+
+    <div class="nav-right">
+      <button id="lang-toggle-btn" class="lang-toggle-btn" title="Switch Language (ID / EN)">
+        <i class="fa-solid fa-globe"></i>
+        <span id="lang-label">🇮🇩 ID</span>
+      </button>
+
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        <span data-id="TERSEDIA UNTUK BEKERJA" data-en="AVAILABLE FOR HIRE">TERSEDIA UNTUK BEKERJA</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN OVERLAY SECTIONS CONTAINER -->
+  <main class="content-overlay">
+
+    <!-- SECTION 1: HERO OVERLAY -->
+    <section class="section-overlay section-hero active" id="sec-hero">
+      <div class="bg-graffiti-text">AI ENGINEER</div>
+
+      <div class="hero-left">
+        <h1 class="main-title">MA'RUF</h1>
+        <h2 class="sub-title" data-id="Ma'ruf • Founder @ EmmeDigital • AI Engineer" data-en="Ma'ruf • Founder @ EmmeDigital • AI Engineer">Ma'ruf &bull; Founder @ EmmeDigital &bull; AI Engineer</h2>
+        
+        <div class="hero-social-row">
+          <a href="https://instagram.com/_nblz_" target="_blank" class="soc-link" title="Instagram (@_nblz_)"><i class="fa-brands fa-instagram"></i></a>
+          <a href="http://github.com/Nabil-Al-Maruf/" target="_blank" class="soc-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://wa.me/6285150911240" target="_blank" class="soc-link" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://youtube.com/@maruf_emme" target="_blank" class="soc-link" title="YouTube (maruf_emme)"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <div class="hero-badges-column">
+          <div class="emme-badge">
+            <img src="images/Emmedigital.png" alt="EmmeDigital Logo" class="emme-logo">
+            <span data-id="FOUNDER @ EMMEDIGITAL" data-en="FOUNDER @ EMMEDIGITAL">FOUNDER @ EMMEDIGITAL</span>
+          </div>
+
+          <div class="flag-badge">
+            <svg width="24" height="15" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="28" height="9" fill="#E70011"/>
+              <rect y="9" width="28" height="9" fill="#FFFFFF"/>
+              <rect width="28" height="18" rx="2" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+            </svg>
+            <span>INDONESIA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Showcase Card -->
+      <div class="floating-showcase">
+        <div class="showcase-thumb" style="background-image: url('images/Me.jpg'); background-size: cover; background-position: center;">
+          <div class="thumb-gradient"></div>
+          <div class="play-button" id="open-video-btn">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <div class="thumb-badge" data-id="VIDEO UTAMA" data-en="FEATURED VIDEO">VIDEO UTAMA</div>
+        </div>
+        <div class="showcase-caption" data-id="Tonton Showcase" data-en="Watch Showcase">
+          <i class="fa-solid fa-circle-play"></i> Tonton Showcase
+        </div>
+      </div>
+
+      <!-- Bottom Glassmorphism Stats Bar -->
+      <div class="stats-bar-wrapper">
+        <div class="stats-cards-grid">
+          <div class="stat-card">
+            <div class="stat-label" data-id="PROYEK SELESAI" data-en="PROJECTS COMPLETED">PROYEK SELESAI</div>
+            <div class="stat-value">7</div>
+          </div>
+          
+          <div class="stat-card highlight-card">
+            <div class="stat-label" data-id="PERAN UTAMA" data-en="PRIMARY ROLE">PERAN UTAMA</div>
+            <div class="stat-value role-text">AI Engineer</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-label" data-id="TINGKAT KEBERHASILAN" data-en="SUCCESS RATE">TINGKAT KEBERHASILAN</div>
+            <div class="stat-value">100%</div>
+          </div>
+        </div>
+
+        <div class="stats-footer-pills">
+          <div class="pill-badge pill-rank">
+            <span class="pill-label" data-id="TINGKAT" data-en="LEVEL">TINGKAT</span>
+            <span class="pill-value">JUNIOR DEV</span>
+          </div>
+
+          <div class="pill-url">github.com/Nabil-Al-Maruf</div>
+
+          <div class="pill-badge pill-stat">
+            <span class="pill-label" data-id="EFISIENSI KODE" data-en="CODE EFFICIENCY">EFISIENSI KODE</span>
+            <span class="pill-value">99.5%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME SECTION -->
+    <section class="section-overlay section-about" id="sec-about">
+      <div class="bg-graffiti-text">ABOUT ME</div>
+
+      <div class="about-container">
+        <div class="about-header">
+          <span class="blue-tag" data-id="Tentang Saya" data-en="About Me">Tentang Saya</span>
+          <h2 class="about-main-heading">AI Engineer & Tech Influencer</h2>
+        </div>
+
+        <div class="about-main-grid">
+          <div class="about-photo-wrapper">
+            <div class="award-icon-badge">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div class="main-photo-card">
+              <img src="images/Me.jpg" alt="Muhammad Nabil Al Ma'ruf">
+            </div>
+
+            <div class="secondary-photo-card">
+              <img src="images/Me2.png" alt="Muhammad Nabil Al Ma'ruf">
+            </div>
+
+            <div class="exp-badge-card">
+              <span class="exp-number">UINSA</span>
+              <span class="exp-text" data-id="Sistem Informasi" data-en="Information Systems">Sistem<br>Informasi</span>
+            </div>
+          </div>
+
+          <div class="about-bio-wrapper">
+            <h3 class="bio-title" data-id="Biodata Saya" data-en="My Bio">Biodata Saya</h3>
+            <p class="bio-description" 
+               data-id="Halo! Saya Muhammad Nabil Al Ma'ruf, Founder dari EmmeDigital dan mahasiswa jurusan Sistem Informasi di Universitas Islam Negeri Sunan Ampel Surabaya (UINSA). Selain berfokus sebagai AI Engineer, saya juga seorang Tech Influencer yang aktif membahas dan mengedukasi seputar dunia IT & teknologi terkini." 
+               data-en="Hello! I am Muhammad Nabil Al Ma'ruf, Founder of EmmeDigital and an Information Systems student at Universitas Islam Negeri Sunan Ampel Surabaya (UINSA). Beyond focusing as an AI Engineer, I am also a Tech Influencer actively discussing and educating about IT & modern technology.">
+              Halo! Saya <strong>Muhammad Nabil Al Ma'ruf</strong>, Founder dari <strong>EmmeDigital</strong> dan mahasiswa jurusan <strong>Sistem Informasi</strong> di <strong>Universitas Islam Negeri Sunan Ampel Surabaya (UINSA)</strong>. Selain berfokus sebagai AI Engineer, saya juga seorang <strong>Tech Influencer</strong> yang aktif membahas dan mengedukasi seputar dunia IT & teknologi terkini.
+            </p>
+
+            <div class="bio-info-card">
+              <div class="info-row">
+                <div class="info-item">
+                  <span class="info-label" data-id="Nama" data-en="Name">Nama</span>
+                  <span class="info-value">Muhammad Nabil Al Ma'ruf</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label" data-id="Universitas" data-en="University">Universitas</span>
+                  <span class="info-value highlight-cyan">UINSA Surabaya</span>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-item">
+                  <span class="info-label" data-id="Jurusan" data-en="Major">Jurusan</span>
+                  <span class="info-value" data-id="Sistem Informasi" data-en="Information Systems">Sistem Informasi</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label" data-id="Peran" data-en="Role">Peran</span>
+                  <span class="info-value highlight-cyan">Founder EmmeDigital & AI Eng</span>
+                </div>
+              </div>
+
+              <div class="info-row">
+                <div class="info-item">
+                  <span class="info-label">Instagram</span>
+                  <span class="info-value highlight-cyan">@_nblz_</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">WhatsApp</span>
+                  <span class="info-value">+62 851-5091-1240</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="https://wa.me/6285150911240" target="_blank" class="btn-cyan">
+              <i class="fa-brands fa-whatsapp"></i> <span data-id="Hubungi via WhatsApp" data-en="Contact via WhatsApp">Hubungi via WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-metrics-grid">
+          <div class="metric-card">
+            <span class="metric-num">UINSA</span>
+            <span class="metric-label" data-id="Sistem Informasi" data-en="Information Systems">Sistem Informasi</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-num">Tech</span>
+            <span class="metric-label" data-id="Influencer / Creator" data-en="Influencer / Creator">Influencer / Creator</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-num">7</span>
+            <span class="metric-label" data-id="Proyek Selesai" data-en="Completed Projects">Proyek Selesai</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-num">100%</span>
+            <span class="metric-label" data-id="Dedikasi IT" data-en="IT Passion">Dedikasi IT</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED PROJECTS -->
+    <section class="section-overlay section-projects" id="sec-projects">
+      <div class="bg-graffiti-text">PROJECTS</div>
+
+      <div class="projects-container">
+        <div class="projects-header">
+          <div class="projects-title-group">
+            <h2 class="projects-heading" data-id="PROYEK UNGGULAN" data-en="FEATURED PROJECTS">PROYEK UNGGULAN</h2>
+            <p class="projects-subheading" data-id="Jelajahi proyek aplikasi mobile, sistem PWA, POS, dan AI terbaru saya" data-en="Explore my latest mobile apps, PWA systems, POS, and AI projects">Jelajahi proyek aplikasi mobile, sistem PWA, POS, dan AI terbaru saya</p>
+          </div>
+          <a href="projects.html" class="btn-view-all" style="text-decoration: none; display: inline-block;" data-id="LIHAT SEMUA (7)" data-en="VIEW ALL (7)">LIHAT SEMUA (7)</a>
+        </div>
+
+        <div class="projects-grid">
+          
+          <div class="project-card" data-project="laundry">
+            <div class="project-thumb">
+              <img src="images/project_vintage.png" alt="LaundryEmme App">
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">LaundryEmme</h3>
+              <span class="know-more-btn" data-project="laundry" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-project="sqlserver">
+            <div class="project-thumb">
+              <img src="images/project_marco.png" alt="Android SQL Server 2008">
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Android SQL Server 2008</h3>
+              <span class="know-more-btn" data-project="sqlserver" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-project="kasq">
+            <div class="project-thumb">
+              <img src="images/project_mozaik.png" alt="PWA KASQ WhatsApp Alert">
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">PWA KASQ (WhatsApp)</h3>
+              <span class="know-more-btn" data-project="kasq" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <div class="project-card" data-project="emmeshop">
+            <div class="project-thumb">
+              <img src="images/project_tokoku.png" alt="EmmeShop Gemini CS Bot">
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">EmmeShop + Gemini Bot</h3>
+              <span class="know-more-btn" data-project="emmeshop" data-id="SELENGKAPNYA" data-en="KNOW MORE">SELENGKAPNYA <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: SKILLS & TECH STACK -->
+    <section class="section-overlay section-skills" id="sec-skills">
+      <div class="bg-graffiti-text">SKILLS</div>
+      <div class="skills-content">
+        <h2 class="sec-heading" data-id="KEMAMPUAN TEKNOLOGI" data-en="CORE TECH STACK">KEMAMPUAN TEKNOLOGI</h2>
+        <p class="sec-subheading" data-id="Keahlian Teknis Saya di Bidang AI, Web, Mobile & Pembuatan Konten" data-en="My Technical Capabilities Across AI, Web, Mobile & Content Creation">Keahlian Teknis Saya di Bidang AI, Web, Mobile & Pembuatan Konten</p>
+
+        <div class="skills-grid">
+          <div class="skill-box">
+            <i class="fa-solid fa-robot skill-icon backend-icon"></i>
+            <h3 data-id="Sistem AI & Agentic" data-en="AI & Agentic Systems">Sistem AI & Agentic</h3>
+            <p>AI Agentic, Prompt Engineering, Python</p>
+          </div>
+
+          <div class="skill-box">
+            <i class="fa-brands fa-js skill-icon react-icon"></i>
+            <h3 data-id="Pengembangan Web" data-en="Web Development">Pengembangan Web</h3>
+            <p>HTML5, CSS3, JavaScript, Node.js</p>
+          </div>
+
+          <div class="skill-box">
+            <i class="fa-brands fa-android skill-icon android-icon"></i>
+            <h3 data-id="Pengembangan Mobile" data-en="Mobile Development">Pengembangan Mobile</h3>
+            <p>Kotlin, Jetpack Compose, Java (Basic)</p>
+          </div>
+
+          <div class="skill-box">
+            <i class="fa-solid fa-database skill-icon ui-icon"></i>
+            <h3 data-id="Basis Data & Alat Kreatif" data-en="Databases & Creative Tools">Basis Data & Alat Kreatif</h3>
+            <p>MySQL, SQLite, Supabase, CapCut</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT & CTA -->
+    <section class="section-overlay section-contact" id="sec-contact">
+      <div class="bg-graffiti-text">CONTACT</div>
+
+      <div class="contact-card-glass">
+        <h2 data-id="MARI MEMBANGUN SESUATU YANG HEBAT" data-en="LET'S BUILD SOMETHING GREAT">MARI MEMBANGUN SESUATU YANG HEBAT</h2>
+        <p data-id="Tersedia untuk proyek AI, aplikasi mobile, sistem POS web, dan kolaborasi teknis." data-en="Available for AI engineering projects, mobile apps, web POS systems, and technical collaborations.">Tersedia untuk proyek AI, aplikasi mobile, sistem POS web, dan kolaborasi teknis.</p>
+        
+        <div class="contact-buttons">
+          <a href="https://wa.me/6285150911240" target="_blank" class="btn-primary">
+            <i class="fa-brands fa-whatsapp"></i> <span data-id="Chat di WhatsApp" data-en="Chat on WhatsApp">Chat di WhatsApp</span>
+          </a>
+          <a href="http://github.com/Nabil-Al-Maruf/" target="_blank" class="btn-secondary">
+            <i class="fa-brands fa-github"></i> <span data-id="Profil GitHub" data-en="GitHub Profile">Profil GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- SITE FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-left">
+          <span class="footer-brand">NABIL AL MA'RUF &bull; FOUNDER @ EMMEDIGITAL &bull; AI ENGINEER</span>
+          <span class="footer-copy" data-id="© 2026 Hak Cipta Dilindungi. Dibuat dengan Animasi Scroll Kanvas HTML5." data-en="&copy; 2026 All Rights Reserved. Built with HTML5 Canvas Scroll Animation.">&copy; 2026 Hak Cipta Dilindungi. Dibuat dengan Animasi Scroll Kanvas HTML5.</span>
+        </div>
+
+        <div class="footer-center">
+          <a href="http://github.com/Nabil-Al-Maruf/" target="_blank" class="footer-soc" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://instagram.com/_nblz_" target="_blank" class="footer-soc" title="Instagram (@_nblz_)"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/6285150911240" target="_blank" class="footer-soc" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://youtube.com/@maruf_emme" target="_blank" class="footer-soc" title="YouTube (maruf_emme)"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <div class="footer-right">
+          <button id="back-to-top-btn" class="footer-top-btn">
+            <i class="fa-solid fa-arrow-up"></i> <span data-id="Kembali Ke Atas" data-en="Back To Top">Kembali Ke Atas</span>
+          </button>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- PROJECT DETAIL MODAL -->
+  <div id="project-modal" class="modal-overlay">
+    <div class="project-modal-content">
+      <button class="modal-close" id="close-project-modal-btn">&times;</button>
+      
+      <div class="project-modal-header">
+        <span class="blue-tag" id="pm-category">ANDROID NATIVE</span>
+        <h2 id="pm-title">Project Title</h2>
+      </div>
+
+      <!-- Image Gallery Carousel -->
+      <div class="project-gallery">
+        <img id="pm-main-img" src="images/project_vintage.png" alt="Project Screenshot">
+        <div class="gallery-thumbs" id="pm-thumbs">
+          <!-- Thumbnails injected via JS -->
+        </div>
+      </div>
+
+      <!-- Summary & Details -->
+      <div class="project-summary-body">
+        <h3><i class="fa-solid fa-file-code"></i> <span data-id="Gambaran Umum Proyek" data-en="Project Overview">Gambaran Umum Proyek</span></h3>
+        <p id="pm-description">Detailed summary description...</p>
+
+        <h3><i class="fa-solid fa-layer-group"></i> <span data-id="Teknologi & Alat Yang Digunakan" data-en="Technologies & Tools Used">Teknologi & Alat Yang Digunakan</span></h3>
+        <div class="tech-tags-wrapper" id="pm-tags">
+          <!-- Tech tags injected via JS -->
+        </div>
+      </div>
+
+      <div class="project-modal-footer">
+        <a id="pm-link" href="http://github.com/Nabil-Al-Maruf/" target="_blank" class="btn-cyan">
+          <i class="fa-brands fa-github"></i> <span data-id="Lihat Repositori / Demo" data-en="View Repository / Demo">Lihat Repositori / Demo</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN IMAGE LIGHTBOX -->
+  <div id="image-lightbox" class="modal-overlay">
+    <button class="modal-close" id="close-lightbox-btn" style="top: 20px; right: 25px; font-size: 32px;">&times;</button>
+    <img id="lightbox-full-img" src="" alt="Fullscreen Screenshot" style="max-width: 92vw; max-height: 92vh; object-fit: contain; border-radius: 12px; box-shadow: 0 0 50px rgba(0, 255, 245, 0.4); border: 1px solid var(--panel-border);">
+  </div>
+
+  <!-- VIDEO MODAL POPUP -->
+  <div id="video-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal-btn">&times;</button>
+      <div class="video-container">
+        <iframe id="video-frame" src="https://www.youtube.com/embed/gf2lEWh0j1o" title="Project Showcase Video" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Track Spacer (Enables Document Scrolling for 240 Frames) -->
+  <div class="scroll-track"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
