@@ -20,6 +20,7 @@
 html {
   scroll-behavior: smooth;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -29,6 +30,7 @@ body {
   overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
+  overscroll-behavior-y: none;
 }
 
 /* Custom Minimal Scrollbar */

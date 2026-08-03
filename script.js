@@ -26,7 +26,7 @@ let lastDrawnFrameIndex = -1;
 
 function getFrameUrl(index) {
   const paddedIndex = String(index + 1).padStart(3, '0');
-  return `Frame/ezgif-frame-${paddedIndex}.jpg`;
+  return `Frame/ezgif-frame-${paddedIndex}.webp`;
 }
 
 // Fit canvas to viewport resolution with retina DPI scaling
@@ -158,18 +158,20 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-// Batch Preloader for 240 frames
+// Fast Priority Preloader: Loads key initial frames first to unlock page in < 1 second!
 function preloadFrames() {
-  let loaded = 0;
+  let loadedCount = 0;
+  let priorityCount = 25; // First 25 WebP frames unlock the page instantly
 
-  for (let i = 0; i < TOTAL_FRAMES; i++) {
+  const loadSingleFrame = (i) => {
     const img = new Image();
     img.src = getFrameUrl(i);
 
     img.onload = () => {
       loadedFrames.add(i);
-      loaded++;
-      const progress = Math.round((loaded / TOTAL_FRAMES) * 100);
+      loadedCount++;
+
+      const progress = Math.round((loadedCount / TOTAL_FRAMES) * 100);
       if (loaderText) {
         loaderText.textContent = `Loading ${progress}%`;
       }
@@ -178,20 +180,35 @@ function preloadFrames() {
         drawFrame(0);
       }
 
-      if (loaded === TOTAL_FRAMES && loader) {
+      // Hide loader instantly when initial priority frames are ready
+      if (loadedCount >= priorityCount && loader && !loader.classList.contains('hidden')) {
         loader.classList.add('hidden');
       }
     };
 
     img.onerror = () => {
-      loaded++;
-      if (loaded === TOTAL_FRAMES && loader) {
+      // Fallback to JPG if webp fails to load
+      img.src = getFrameUrl(i).replace('.webp', '.jpg');
+      loadedCount++;
+      if (loadedCount >= priorityCount && loader && !loader.classList.contains('hidden')) {
         loader.classList.add('hidden');
       }
     };
 
     frameImages[i] = img;
+  };
+
+  // Phase 1: High priority load initial key frames
+  for (let i = 0; i < priorityCount; i++) {
+    loadSingleFrame(i);
   }
+
+  // Phase 2: Progressively load remaining frames in background
+  setTimeout(() => {
+    for (let i = priorityCount; i < TOTAL_FRAMES; i++) {
+      loadSingleFrame(i);
+    }
+  }, 150);
 }
 
 // PROJECTS DATA & DETAIL MODAL ENGINE (User's 7 Real Projects)
